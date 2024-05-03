@@ -1,0 +1,240 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 62.5%;
+  --primary-color: black;
+  --secondary-color: #626262;
+  --accent-color: white;
+  --link-color: #effeff;
+  --link-color-hover: #d2fbff;
+  --text-size: 2.5rem;
+  --text-heading: 3.5rem;
+  --text-heading-small: 3rem;
+  --transition: ease 0.15s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+
+/* navigation bar */
+
+.nav-bar {
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 30rem;
+  align-items: center;
+  background: var(--primary-color);
+}
+.logo {
+  max-width: 200px;
+}
+.nav-lists {
+  display: flex;
+  gap: 2rem;
+}
+.nav-link > a {
+  color: var(--link-color);
+  font-size: var(--text-size);
+  transition: color var(--transition);
+}
+.nav-link > a:hover {
+  color: var(--link-color-hover);
+}
+.nav-toggle {
+  display: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--accent-color);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  .nav-bar {
+    padding: 0.5rem 5rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .logo {
+    max-width: 150px;
+  }
+  .nav-bar {
+    padding: 0.5rem 1.5rem;
+    flex-wrap: wrap;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .nav-lists {
+    height: 0;
+    width: 100%;
+    flex-direction: column;
+    padding: 0 2rem;
+    /* justify-content: center;
+    align-items: center; */
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+  .nav-lists.active {
+    height: 100vh;
+    margin-top: 2rem;
+  }
+}
+
+/* end of navigation bar */
+
+/* product card */
+.product-heading {
+  font-size: var(--text-heading);
+  text-align: center;
+  margin: 15rem 0 5rem 0;
+}
+
+.card-container {
+  margin: 0 auto;
+  max-width: 1024px;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and (max-width: 950px) {
+  .card-container {
+    padding: 0 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 600px) {
+  .card-container {
+    padding: 0 2.5rem;
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2.5rem 2.5rem 2.5rem;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 2px 5px 20px rgb(230, 230, 230);
+}
+.card-img {
+  max-width: 270px;
+}
+
+.card-title {
+  font-size: var(--text-heading-small);
+  color: var(--secondary-color);
+}
+
+.detail {
+  margin-top: 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.card-price {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+}
+.btn {
+  text-align: center;
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
+  border: 2px solid var(--secondary-color);
+  outline: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn:hover {
+  color: var(--primary-color);
+  background-color: var(--accent-color);
+  box-shadow: 0 5px 0px var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+}
+/* end of product card */
+
+/* info */
+.detail-product {
+  margin: 15rem 0 5rem 0;
+}
+
+.info-container {
+  padding-left: 10rem;
+  display: flex;
+  align-items: center;
+}
+.info-img {
+  max-width: 500px;
+  animation: scale 2s infinite;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.product-info > li {
+  margin: 10px 0;
+  font-size: var(--text-size);
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+.product-info > li > span {
+  font-weight: normal;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
+}
+.back {
+  font-size: var(--text-size);
+  color: var(--secondary-color);
+  margin-left: 7rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .info-container {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 900px) {
+  .info-container {
+    flex-direction: column;
+  }
+  .product-info > li {
+    text-align: center;
+  }
+}
+/* end of info */
